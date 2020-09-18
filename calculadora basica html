@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>calculadora</title>
+        <script>
+          var num1= prompt("introduce el primer numero");
+          var num2= prompt("introduce el segundo numero");
+          var operacion=prompt("que deseas hacer? sumar/restar/multiplicar/dividir?");
+          var num1= parseFloat(num1);
+          var num2= parseFloat(num2);
+          if (operacion=="sumar") {
+              alert(num1+num2)
+          }
+          else if (operacion=="restar") {
+              alert(num1-num2)
+          }
+          else if (operacion=="multiplicar") {
+              alert(num1*num2)
+          }
+          else if (operacion=="dividir") {
+              alert(num1/num2)
+          }
+          else {
+              alert("operacion no existente")
+          }
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>
