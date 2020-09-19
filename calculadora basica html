@@ -5,6 +5,7 @@
         <script>
           var num1= prompt("introduce el primer numero");
           var num2= prompt("introduce el segundo numero");
+          if(!isNaN(num1) && !isNaN(num2)){
           var operacion=prompt("que deseas hacer? sumar/restar/multiplicar/dividir?");
           var num1= parseFloat(num1);
           var num2= parseFloat(num2);
@@ -22,6 +23,10 @@
           }
           else {
               alert("operacion no existente")
+          }
+          }
+          else{
+            alert("ha introducidos caracteres no numericos")
           }
         </script>
 
