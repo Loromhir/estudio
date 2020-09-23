@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset= "utf-8">
+<title>trabajo 2 while </title>
+<style>
+  #contenedor{
+  width: 25%;
+  background-color: #FFC;
+  margin: auto;
+  padding: 15px;
+  }
+</style>
+<script>
+  var Nobre, Edad, Poblacion;
+  Nobre = prompt("introduce tu nombre", "Escriba su nombre.");
+    while(!isNaN(Nombre)){
+    Nombre = Prompt("Introduce un nombre valido.", "Escriba su nombre.")
+    }
+  Edad = prompt("introduce tu edad", "Escriba su edad.");
+    while(Edad <= 0|| Edad >= 105 || isNaN(Edad)){
+      Edad = prompt("introduce una edad valida.", "Escriba su edad.");
+    }
+  Ciudad = prompt("introduce poblacion", "Escriba su ciudad.");
+  while(!isNaN(Ciudad)){
+    Ciudad = Prompt("Introduce una ciudad valida.", "Escriba su ciudad.");
+    }
+</script>
+</head>
+<body>
+<div id="contenedor">
+<p>Nombre: <script> document.write(Nombre)
+</script></p>
+<p>Edad:<script> document.write(Edad)
+</script> </p>
+<p>Ciudad<script> document.write(Ciudad)
+</script></p>
+</div>
+</body>
+</html>
