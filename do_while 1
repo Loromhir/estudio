@@ -2,25 +2,42 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script>
-  var aleatorio = Math.round(Math.ramdom()*100);
-  var minum=0;
-  var intentos=0;
-do{
-  minum=prompt("introduce un nº del 0 al 100")
-    if(aleatorio>minum){
-    document.write("es mas alto que " + minum + "<br/>");
-    }
-    if(aleatorio<minum){
-    document.write("es mas bajo que " + nimun + "<br/>");
-    }
-    intentos++;
-}while(aleatorio!=minum);
-
-document.write("correcto! has hecho " + intentos + " intentos!);
-
-</script>
 </head>
 <body>
+
+<table width="25%" border="0">
+<tr>
+<td><label for="textfield"></label>
+<input type="text" name="textfield" id="c_mensaje"></td>
+<td><label for="textfield2"></label>
+<input type="text" name="textfield2" id="c_intentos"></td>
+</tr>
+</table>
+
+<script>
+ 	var aleatorio = Math.round(Math.ramdom()*100);
+  	var minum=0;
+  	var intento=0;
+  
+	var mensaje= document.getElementById("c_mensaje");
+  	var intentos= document.getElementById("c_intentos")
+
+do{
+  
+	minum= prompt("introduce un nº del 0 al 100")
+    
+		if(aleatorio>minum){
+    	mensaje.value="es mas alto que " + minum;
+    	}
+    		if(aleatorio<minum){
+    	mensaje.value="es mas bajo que " + minum;
+	    }
+	intento++;
+	intentos.value=intento;
+}
+	while(aleatorio!=minum);	
+	document.write("correcto! has hecho " + intentos + " intentos!");
+
+</script>
 </body>
 </html>
