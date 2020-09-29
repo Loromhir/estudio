@@ -15,7 +15,7 @@
 </table>
 
 <script>
- 	var aleatorio = Math.round(Math.ramdom()*100);
+ 	var aleatorio = Math.round(Math.random()*100);
   	var minum=0;
   	var intento=0;
   
