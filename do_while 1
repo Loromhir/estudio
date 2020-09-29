@@ -28,16 +28,21 @@ do{
     
 		if(aleatorio>minum){
     	mensaje.value="es mas alto que " + minum;
+	mensaje.style.fontSize="16px";
     	}
     		if(aleatorio<minum){
     	mensaje.value="es mas bajo que " + minum;
+	 mensaje.style.fontSize="16px";   
 	    }
 	intento++;
 	intentos.value=intento;
+	intentos.style.fontSize="16px";
+	intentos.style.color="red";
+	intentos.style.textAlign="center";
 }
 	while(aleatorio!=minum);	
-	document.write("correcto! has hecho " + intentos + " intentos!");
-
+	mensaje.value="correcto!";
+	mensaje.style.color="blue"
 </script>
 </body>
 </html>
