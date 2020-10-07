@@ -7,22 +7,22 @@
 <style>
 .numero{
   width:60px;
-  heigth:60px;
+  height:60px;
 }
 .igual{
   width:120px;
-  heigth:60px;
+  height:60px;
 }
 table{
   margin:auto;
 }
 .color_display{
-  heigth:30px;
-  background_color:#000;
+    height:30px;
+  background-color:#000;
   border: medium #fff;
   font: "space age";
   color:#0f0;
-  font-zise: 18px;
+  font-size: 18px;
   text-align: right;
   padding: 5px;
 }
@@ -33,37 +33,113 @@ table{
   var sumar= false;
   var restar=false;
   var multi=false;
-  var dividir=false;
-  function display_numeros(numero){                     //esta funcion permite ingresar los digitos en el display, utilizando la variable digit concatenandola con el parametro numero, permite ingresar en el display todos los digitos que queramos
-    document.getElementById("display").value=digit+numero;
+  var divid=false;
+  var primer_op=true;
+  function display_numeros(numero){                          //esta funcion permite ingresar los digitos en el display, utilizando la variable digit concatenandola con 
+    document.getElementById("display").value=digit+numero;   // el parametro numero, permite ingresar en el display todos los digitos que queramos.
     digit=document.getElementById("display").value;
   }
   function suma(){
-    acumulado= acumulado + parseFloat(digit);
+  if(primer_op){
+    acumulado= parseFloat(digit);
     document.getElementById("display").value=acumulado;
+  }else if(resta){                                            //hacemos unos condicionales if para detectar si antes se hizo otra operacion exeptuando la que estamos 
+        acumulado= acumulado - parseFloat(digit);             //por realizar, de ser asi el acumulado se mostrara como el resultado de la ultima operacion, de este modo 
+        document.getElementById("display").value=acumulado;    //tambien se encuentra en las siguientes funciones operativas.
+    }else if(multi){
+        acumulado= acumulado * parseFloat(digit);
+        document.getElementById("display").value=acumulado;
+    }else if(dividir){
+        acumulado= acumulado / parseFloat(digit);
+        document.getElementById("display").value=acumulado;
+    }else{
+       acumulado= acumulado + parseFloat(digit);
+       document.getElementById("display").value=acumulado;
+    }
     digit="";
+    primer_op=false;
     sumar= true;
+    restar=false;
+    multi=false;
+    divid=false;
   }
   function resta(){
-    acumulado= acumulado - parseFloat(digit);
+    if(primer_op){
+    acumulado= parseFloat(digit);
     document.getElementById("display").value=acumulado;
+    }else if(sumar){
+        acumulado= acumulado + parseFloat(digit);
+      document.getElementById("display").value=acumulado;
+    }else if(multi){
+        acumulado= acumulado * parseFloat(digit);
+      document.getElementById("display").value=acumulado;
+    }else if(dividir){
+        acumulado= acumulado / parseFloat(digit);
+      document.getElementById("display").value=acumulado;
+    } else{
+        acumulado= acumulado - parseFloat(digit);
+       document.getElementById("display").value=acumulado;
+    }
     digit="";
+    primer_op=false;
+    sumar=false;
     restar= true;
+    multi=false;
+    divid=false;
   }
   function multiplicar(){
+    if(primer_op){
+    acumulado= parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(sumar){
+        acumulado= acumulado + parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(restar){
+        acumulado= acumulado - parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(dividir){
+        acumulado= acumulado / parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else{
     acumulado= acumulado * parseFloat(digit);
     document.getElementById("display").value=acumulado;
+    }
     digit="";
-    multi= true;
+    primer_op=false;
+    sumar=false;
+    restar= true;
+    multi=true;
+    divid=false;
   }
   function dividir(){
+  if(primer_op){
+    acumulado= parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(sumar){
+        acumulado= acumulado + parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(restar){
+        acumulado= acumulado - parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else if(multi){
+        acumulado= acumulado * parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+    }else{
     acumulado= acumulado / parseFloat(digit);
     document.getElementById("display").value=acumulado;
     digit="";
+    primer_op=false;
     dividir=true;
+    sumar=false;
+    restar= false;
+    multi=false;
+   
   }
   function resultado(){
-    if(sumar){
+  if(primer_op){
+    acumulado= parseFloat(digit);
+    document.getElementById("display").value=acumulado;
+  }else if(sumar){
       document.getElementById("display").value=acumulado + parceFloat("digit");
     }
     else if(restar){
@@ -75,7 +151,13 @@ table{
     else if(dividir){
       document.getElementById("display").value=acumulado / parceFloat("digit");
     }
+      primer_op=true;
+    divid=false;
+    sumar=false;
+    restar= false;
+    multi=false;
   }
+}
 </script>
 </head>
 <body>
