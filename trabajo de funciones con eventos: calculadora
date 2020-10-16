@@ -39,17 +39,21 @@ table{
     document.getElementById("display").value=digit+numero;   // el parametro numero, permite ingresar en el display todos los digitos que queramos.
     digit=document.getElementById("display").value;
   }
+  function display_comma(){                          
+    document.getElementById("display").value=digit+".";   
+    digit=document.getElementById("display").value;
+  }
   function suma(){
   if(primer_op){
     acumulado= parseFloat(digit);
     document.getElementById("display").value=acumulado;
-  }else if(resta){                                            //hacemos unos condicionales if para detectar si antes se hizo otra operacion exeptuando la que estamos 
+  }else if(restar){                                            //hacemos unos condicionales if para detectar si antes se hizo otra operacion exeptuando la que estamos 
         acumulado= acumulado - parseFloat(digit);             //por realizar, de ser asi el acumulado se mostrara como el resultado de la ultima operacion, de este modo 
         document.getElementById("display").value=acumulado;    //tambien se encuentra en las siguientes funciones operativas.
     }else if(multi){
         acumulado= acumulado * parseFloat(digit);
         document.getElementById("display").value=acumulado;
-    }else if(dividir){
+    }else if(divid){
         acumulado= acumulado / parseFloat(digit);
         document.getElementById("display").value=acumulado;
     }else{
@@ -73,7 +77,7 @@ table{
     }else if(multi){
         acumulado= acumulado * parseFloat(digit);
       document.getElementById("display").value=acumulado;
-    }else if(dividir){
+    }else if(divid){
         acumulado= acumulado / parseFloat(digit);
       document.getElementById("display").value=acumulado;
     } else{
@@ -97,7 +101,7 @@ table{
     }else if(restar){
         acumulado= acumulado - parseFloat(digit);
     document.getElementById("display").value=acumulado;
-    }else if(dividir){
+    }else if(divid){
         acumulado= acumulado / parseFloat(digit);
     document.getElementById("display").value=acumulado;
     }else{
@@ -107,7 +111,7 @@ table{
     digit="";
     primer_op=false;
     sumar=false;
-    restar= true;
+    restar= false;
     multi=true;
     divid=false;
   }
@@ -129,7 +133,7 @@ table{
     document.getElementById("display").value=acumulado;
     digit="";
     primer_op=false;
-    dividir=true;
+    divid=true;
     sumar=false;
     restar= false;
     multi=false;
@@ -141,17 +145,25 @@ table{
     document.getElementById("display").value=acumulado;
   }else if(sumar){
       document.getElementById("display").value=acumulado + parceFloat("digit");
+      document.getElementById("display").value=acumulado;
+
     }
     else if(restar){
       document.getElementById("display").value=acumulado - parceFloat("digit");
+      document.getElementById("display").value=acumulado;
+
     }
     else if(multi){
       document.getElementById("display").value=acumulado * parceFloat("digit");
+      document.getElementById("display").value=acumulado;
+
     }
     else if(dividir){
       document.getElementById("display").value=acumulado / parceFloat("digit");
+      document.getElementById("display").value=acumulado;
+
     }
-      primer_op=true;
+    primer_op=true;
     divid=false;
     sumar=false;
     restar= false;
@@ -176,11 +188,11 @@ table{
   <td><input name="num9" type="button" class="numero" id="num9" value="9" onClick="display_numeros(9)"></td>
   <td><input name="num8" type="button" class="numero" id="num8" value="8" onClick="display_numeros(8)"></td>
   <td><input name="num7" type="button" class="numero" id="num7" value="7" onClick="display_numeros(7)"></td>
-  <td>&nbsp;</td>
+  </tr>
   <td><input name="num6" type="button" class="numero" id="num6" value="6" onClick="display_numeros(6)"></td>
   <td><input name="num5" type="button" class="numero" id="num5" value="5" onClick="display_numeros(5)"></td>
   <td><input name="num4" type="button" class="numero" id="num4" value="4" onClick="display_numeros(4)"></td>
-  <td>&nbsp;</td>
+  </tr>
   <td><input name="num3" type="button" class="numero" id="num3" value="3" onClick="display_numeros(3)"></td>
   <td><input name="num2" type="button" class="numero" id="num2" value="2" onClick="display_numeros(2)"></td>
   <td><input name="num1" type="button" class="numero" id="num1" value="1" onClick="display_numeros(1)"></td>
@@ -188,8 +200,8 @@ table{
   </tr>
   <tr>
   <td><input name="num0" type="button" class="numero" id="num0" value="0" onClick="display_numeros(0)"></td>
-  <td><input name="button11" type="button" class="numero" id="button11" value=","></td>
-  <td colspan="2"><input name="button12" type="button" class="igual" id="button12" value="=" onClick="resultado()"></td>
+  <td><input name="button11" type="button" class="numero" id="button11" value="," onclick="display_comma()"></td>
+  <td colspan="2"><input name="button17" type="button" class="igual" id="button17" value="=" onclick="resultado()"></td>
   </tr>
 </table>
 <script>
