@@ -39,8 +39,8 @@ table{
     document.getElementById("display").value=digit+numero;   // el parametro numero, permite ingresar en el display todos los digitos que queramos.
     digit=document.getElementById("display").value;
   }
-  function display_comma(){                          
-    document.getElementById("display").value=digit+".";   
+  function display_comma(){                          //esta funcion permite ingresar los digitos en el display, utilizando la variable digit concatenandola con 
+    document.getElementById("display").value=digit+".";   // el parametro numero, permite ingresar en el display todos los digitos que queramos.
     digit=document.getElementById("display").value;
   }
   function suma(){
@@ -158,11 +158,12 @@ table{
       document.getElementById("display").value=acumulado;
 
     }
-    else if(dividir){
+    else if(divid){
       document.getElementById("display").value=acumulado / parceFloat("digit");
       document.getElementById("display").value=acumulado;
 
     }
+    digit="";
     primer_op=true;
     divid=false;
     sumar=false;
